@@ -39,10 +39,22 @@ while rval:
         # draw a bounding box rectangle and label on the image
         color = (0, 255, 255)
         cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
-        x_offset = y_offset = 150
+        x_offset = x
+        y_offset = y
+        if x_offset < 0:
+            x_offset = 0
+        elif x_offset + arrows.shape[1] > frame.shape[1]:
+            x_offset = frame.shape[1] - arrows.shape[1]
+        if y_offset < 0:
+            y_offset = 0
+        elif y_offset + arrows.shape[1] > frame.shape[1]:
+            y_offset = frame.shape[0] - arrows.shape[0]
+        if x_offset > frame.shape[1]:
+            x_offset = frame.shape[1] - arrows.shape[1]
+        elif y_offset > frame.shape[0]:
+            y_offset = frame.shape[0] - arrows.shape[0]
         frame[y_offset:y_offset + arrows.shape[0], x_offset:x_offset + arrows.shape[1]] = arrows
         text = "%s (%s)" % (name, round(confidence, 2))
-        cv2.putText(frame, text, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX,0.5, color, 2)
 
     cv2.imshow("preview", frame)
 
@@ -54,3 +66,4 @@ while rval:
 
 cv2.destroyWindow("preview")
 vc.release()
+
