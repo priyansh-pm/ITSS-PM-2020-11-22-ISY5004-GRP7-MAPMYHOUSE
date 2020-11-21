@@ -1,5 +1,5 @@
 # Map My House
-This project is done as part of the Graduate Certificate in Intelligent Sensing Systems (ITSS) series offered by NUS-ISS.
+This project is done as part of the [Graduate Certificate in Intelligent Sensing Systems (ITSS)](https://www.iss.nus.edu.sg/stackable-certificate-programmes/intelligent-systems) series offered by NUS-ISS.
 
 
 | Official Full Name | Student ID ((MTech Applicable) | Email ID |
